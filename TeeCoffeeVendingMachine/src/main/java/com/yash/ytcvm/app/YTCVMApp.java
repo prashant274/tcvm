@@ -37,6 +37,7 @@ public class YTCVMApp {
 	private ContainerService containerService;
 
 	private ReportService reportService;
+	
 
 	public YTCVMApp() {
 		fileHelper = new FileHelper();
@@ -47,6 +48,7 @@ public class YTCVMApp {
 	}
 
 	public void launchApp() {
+		logger.info("launchApp started");
 		boolean isContinue = true;
 		String userInput = null;
 		Scanner scanner = new Scanner(System.in);
@@ -119,9 +121,11 @@ public class YTCVMApp {
 			System.out.println(fileNotExistException.getMessage());
 			logger.error(fileNotExistException.getMessage());
 		}
+		logger.info("launchApp ended");
 	}
 
 	private boolean processReportRequest(Scanner scanner) throws FileNotExistException, FileNotFoundException {
+		logger.info("processReportRequest started");
 		boolean isContinue = false;
 		System.out.println(fileHelper.readFile(FilePathLiterals.REPORTS_MENU_FILE));
 		int validInput = Integer.parseInt(scanner.nextLine());
@@ -142,10 +146,12 @@ public class YTCVMApp {
 			System.out.println("Invalid Input, try again");
 			processReportRequest(scanner);
 		}
+		logger.info("processReportRequest ended");
 		return isContinue;
 	}
 
 	private void generateDrinkWiseReport(Scanner scanner) throws FileNotExistException, FileNotFoundException {
+		logger.info("generateDrinkWiseReport started");
 		int validInput = Integer.parseInt(scanner.nextLine());
 		String drinkWiseReport=null;
 		switch (validInput) {
@@ -169,9 +175,11 @@ public class YTCVMApp {
 		System.out.println("-------------------------------------------------------------");
 		System.out.println(drinkWiseReport);
 		System.out.println("-------------------------------------------------------------");
+		logger.info("generateDrinkWiseReport ended");
 	}
 
 	private void processContainerRefill(Scanner scanner) throws ContainerOverFlowException, FileNotExistException {
+		logger.info("generateDrinkWiseReport started");
 		boolean isRefilled = false;
 		int validInput = 0, quantityToFilled = 0;
 		System.out.println(fileHelper.readFile(FilePathLiterals.CONTAINER_REFILL_FILE));
@@ -211,6 +219,7 @@ public class YTCVMApp {
 		if (isRefilled) {
 			System.out.println("Container refilled successfully.");
 		}
+		logger.info("generateDrinkWiseReport ended");
 	}
 
 	private boolean isUserWantsToContinue(Scanner scanner) {

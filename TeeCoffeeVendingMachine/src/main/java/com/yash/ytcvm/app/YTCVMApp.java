@@ -241,6 +241,10 @@ public class YTCVMApp {
 		Order order;
 		System.out.println("Enter no. of cups");
 		int noOfCups = Integer.parseInt(scanner.nextLine());
+		if(noOfCups<=0){
+			System.out.println("Invalid input, try again");
+			processOrderBasedOnInput(scanner,drinkType);
+		}
 		order = new Order(noOfCups, drinkType);
 		int rowsAffected = orderService.processOrder(order);
 		if (isOrderProcessed(rowsAffected)) {

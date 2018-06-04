@@ -49,6 +49,4 @@ public class Material {
 		this.water = water;
 	}
 	
-	 
-
 }

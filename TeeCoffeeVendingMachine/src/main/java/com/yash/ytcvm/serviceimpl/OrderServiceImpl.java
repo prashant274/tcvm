@@ -53,7 +53,6 @@ public class OrderServiceImpl implements OrderService {
 		setDrinkBuilderByOrderType(order);
 		drinkBuilder.process(order);
 		int result=orderDAO.insertOrder(order);
-		Container.getContainer();
 		logger.info("processOrder ends");
 		return result;
 	}

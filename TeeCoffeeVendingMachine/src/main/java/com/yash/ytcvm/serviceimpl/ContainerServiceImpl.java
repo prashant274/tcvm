@@ -60,24 +60,29 @@ public class ContainerServiceImpl implements ContainerService {
 	private void checkForOverFlow(ContainerEnum containerType, int quantity) throws ContainerOverFlowException {
 		switch (containerType) {
 		case TEA:
-			if (quantity > (Container.TEA_CONTAINER_MAX_CAPACITY - container.getTea()))
-				throw new ContainerOverFlowException("Quantity to be fill is more than tea container capacity");
+			int remainingTeaQuantity=Container.TEA_CONTAINER_MAX_CAPACITY - container.getTea();
+			if (quantity > remainingTeaQuantity)
+				throw new ContainerOverFlowException("Quantity to be fill is more than tea container capacity, required :"+remainingTeaQuantity);
 			break;
 		case SUGAR:
-			if (quantity > (Container.SUGAR_CONTAINER_MAX_CAPACITY - container.getSugar()))
-				throw new ContainerOverFlowException("Quantity to be fill is more than sugar container capacity");
+			int remainingSugarQuantity=Container.TEA_CONTAINER_MAX_CAPACITY - container.getTea();
+			if (quantity > remainingSugarQuantity)
+				throw new ContainerOverFlowException("Quantity to be fill is more than sugar container capacity, required :"+remainingSugarQuantity);
 			break;
 		case COFFEE:
+			int remainingCoffeQuantity=Container.TEA_CONTAINER_MAX_CAPACITY - container.getTea();
 			if (quantity > (Container.COFFEE_CONTAINER_MAX_CAPACITY - container.getCoffee()))
-				throw new ContainerOverFlowException("Quantity to be fill is more than coffee container capacity");
+				throw new ContainerOverFlowException("Quantity to be fill is more than coffee container capacity, required :"+remainingCoffeQuantity);
 			break;
 		case WATER:
-			if (quantity > (Container.WATER_CONTAINER_MAX_CAPACITY - container.getWater()))
-				throw new ContainerOverFlowException("Quantity to be fill is more than water container capacity");
+			int remainingWaterQuantity=Container.WATER_CONTAINER_MAX_CAPACITY - container.getWater();
+			if (quantity > remainingWaterQuantity)
+				throw new ContainerOverFlowException("Quantity to be fill is more than water container capacity, required :"+remainingWaterQuantity);
 			break;
 		case MILK:
-			if (quantity > (Container.MILK_CONTAINER_MAX_CAPACITY - container.getMilk()))
-				throw new ContainerOverFlowException("Quantity to be fill is more than milk container capacity");
+			int remainingMilkQuantity=Container.MILK_CONTAINER_MAX_CAPACITY - container.getMilk();
+			if (quantity >remainingMilkQuantity )
+				throw new ContainerOverFlowException("Quantity to be fill is more than milk container capacity, required :"+remainingMilkQuantity);
 			break;
 		default:
 			break;

@@ -26,5 +26,5 @@ should also have flexible reporting features.
 2. Extract the downloaded zip file.
 3. Open Eclipse. Click on File  Import  Existing Maven Projects.
 4. Import the extracted folder.
-5. Go to App.java in com.yash.tvcm.main package.
+5. Go to YTCVMMain.java.java in com.yash.ytvcm.main package.
 6. Right Click on YTCVMMain.java Select Run as  Java Application.

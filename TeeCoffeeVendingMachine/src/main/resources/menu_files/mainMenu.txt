@@ -1,0 +1,13 @@
+### Tea Coffee Vending Machine ###
+
+#1. Make Coffee
+#2. Make Tea
+#3. Make Black Tea
+#4. Make Black Coffee
+#5. Refill Container
+#6. Get Sale Reports
+#7. Check Container Status
+
+#0. Exit
+
+Enter your choice :

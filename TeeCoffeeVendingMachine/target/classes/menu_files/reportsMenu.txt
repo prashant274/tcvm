@@ -1,0 +1,7 @@
+choose Report to display
+
+#1. Get total Sale Report
+#2. Get Drink Wise Report
+
+
+Enter your choice :
